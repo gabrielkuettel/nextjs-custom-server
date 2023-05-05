@@ -1,4 +1,4 @@
-import { CollectionConfig } from 'payload/types';
+import { CollectionConfig } from 'payload/types'
 
 export type MediaType = {
   filename: string
@@ -22,7 +22,7 @@ export type MediaType = {
 const Media: CollectionConfig = {
   slug: 'media',
   access: {
-    read: (): boolean => true, // Everyone can read Media
+    read: (): boolean => true // Everyone can read Media
   },
   upload: {
     adminThumbnail: 'card',
@@ -30,23 +30,23 @@ const Media: CollectionConfig = {
       {
         name: 'card',
         width: 640,
-        height: 480,
+        height: 480
       },
       {
         name: 'feature',
         width: 1024,
-        height: 576,
-      },
-    ],
+        height: 576
+      }
+    ]
   },
   fields: [
     {
       name: 'alt',
       label: 'Alt Text',
       type: 'text',
-      required: true,
-    },
-  ],
-};
+      required: true
+    }
+  ]
+}
 
-export default Media;
+export default Media

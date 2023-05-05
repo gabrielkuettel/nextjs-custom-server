@@ -37,7 +37,7 @@ Here is a step-by-step guide for how to use this repo:
 1. Fill out your `.env` file with values that describe your environment
 1. Run `yarn` or `npm install`
 1. Run `yarn dev` to open a development environment
-1. *optional* Run `yarn seed` to add sample pages and a Media upload
+1. _optional_ Run `yarn seed` to add sample pages and a Media upload
 1. Go to [http://localhost:3000/admin](http://localhost:3000/admin) to create your first user
 
 ## Building and serving in Production

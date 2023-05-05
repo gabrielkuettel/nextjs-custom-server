@@ -23,7 +23,7 @@
 
 .buttons {
   padding: 0;
-  margin: calc(var(--baseline) * .5) 0 0;
+  margin: calc(var(--baseline) * 0.5) 0 0;
   list-style: none;
   display: flex;
   justify-content: center;
@@ -37,9 +37,9 @@
   padding: 15px var(--baseline);
   background: white;
   border-radius: 5px;
-  margin: 0 calc(var(--baseline) * .5);
+  margin: 0 calc(var(--baseline) * 0.5);
   text-transform: uppercase;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .button:hover {
@@ -50,7 +50,6 @@
   background: #e4e4e4;
 }
 
-
 @media (max-width: 600px) {
   .buttons {
     margin-top: 0;
@@ -59,6 +58,6 @@
 
   .button {
     width: 100%;
-    margin: calc(var(--baseline) * .5) 0 0;
+    margin: calc(var(--baseline) * 0.5) 0 0;
   }
 }

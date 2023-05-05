@@ -1,19 +1,20 @@
-import { Block } from 'payload/types';
+import { Block } from 'payload/types'
 
-type Data = Record<string, unknown>;
+type Data = Record<string, unknown>
 
-const customURLCondition = (_: Data, siblings: Data): boolean => siblings.type === 'custom';
+const customURLCondition = (_: Data, siblings: Data): boolean =>
+  siblings.type === 'custom'
 
 export const CallToAction: Block = {
   slug: 'cta',
   labels: {
     singular: 'Call to Action',
-    plural: 'Calls to Action',
+    plural: 'Calls to Action'
   },
   fields: [
     {
       name: 'content',
-      type: 'richText',
+      type: 'richText'
     },
     {
       name: 'buttons',
@@ -23,7 +24,7 @@ export const CallToAction: Block = {
       maxRows: 2,
       labels: {
         singular: 'Button',
-        plural: 'Buttons',
+        plural: 'Buttons'
       },
       fields: [
         {
@@ -35,8 +36,8 @@ export const CallToAction: Block = {
               type: 'text',
               required: true,
               admin: {
-                width: '50%',
-              },
+                width: '50%'
+              }
             },
             {
               name: 'type',
@@ -47,19 +48,19 @@ export const CallToAction: Block = {
               options: [
                 {
                   label: 'Page',
-                  value: 'page',
+                  value: 'page'
                 },
                 {
                   label: 'Custom URL',
-                  value: 'custom',
-                },
+                  value: 'custom'
+                }
               ],
               admin: {
                 width: '50%',
-                layout: 'horizontal',
-              },
-            },
-          ],
+                layout: 'horizontal'
+              }
+            }
+          ]
         },
         {
           name: 'page',
@@ -68,8 +69,9 @@ export const CallToAction: Block = {
           relationTo: 'pages',
           required: true,
           admin: {
-            condition: (_: Data, siblings: Data): boolean => siblings.type === 'page',
-          },
+            condition: (_: Data, siblings: Data): boolean =>
+              siblings.type === 'page'
+          }
         },
         {
           name: 'url',
@@ -77,8 +79,8 @@ export const CallToAction: Block = {
           type: 'text',
           required: true,
           admin: {
-            condition: customURLCondition,
-          },
+            condition: customURLCondition
+          }
         },
         {
           name: 'newTab',
@@ -86,10 +88,10 @@ export const CallToAction: Block = {
           label: 'Open in new tab',
           required: true,
           admin: {
-            condition: customURLCondition,
-          },
-        },
-      ],
-    },
-  ],
-};
+            condition: customURLCondition
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,10 +1,10 @@
-import { Block } from 'payload/types';
+import { Block } from 'payload/types'
 
 export const Image: Block = {
   slug: 'image',
   labels: {
     singular: 'Image',
-    plural: 'Images',
+    plural: 'Images'
   },
   fields: [
     {
@@ -12,7 +12,7 @@ export const Image: Block = {
       label: 'Image',
       type: 'upload',
       relationTo: 'media',
-      required: true,
+      required: true
     },
     {
       name: 'type',
@@ -22,30 +22,28 @@ export const Image: Block = {
       options: [
         {
           label: 'Normal',
-          value: 'normal',
+          value: 'normal'
         },
         {
           label: 'Fullscreen',
-          value: 'fullscreen',
+          value: 'fullscreen'
         },
         {
           label: 'Wide',
-          value: 'wide',
-        },
+          value: 'wide'
+        }
       ],
       admin: {
-        layout: 'horizontal',
-      },
+        layout: 'horizontal'
+      }
     },
     {
       name: 'caption',
       label: 'Caption',
       type: 'richText',
       admin: {
-        elements: [
-          'link',
-        ],
-      },
-    },
-  ],
-};
+        elements: ['link']
+      }
+    }
+  ]
+}

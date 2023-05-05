@@ -1,18 +1,17 @@
-import { Block } from 'payload/types';
+import { Block } from 'payload/types'
 
 export const Content: Block = {
   slug: 'content',
   labels: {
     singular: 'Content',
-    plural: 'Content Blocks',
+    plural: 'Content Blocks'
   },
   fields: [
     {
       name: 'content',
-      type: 'richText',
-    },
-  ],
-};
+      type: 'richText'
+    }
+  ]
+}
 
-
-export default Content;
+export default Content
