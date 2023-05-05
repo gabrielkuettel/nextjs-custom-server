@@ -1,4 +1,4 @@
-import { CollectionConfig } from 'payload/types'
+import { CollectionConfig, Field } from 'payload/types'
 
 export type MediaType = {
   filename: string
@@ -19,7 +19,14 @@ export type MediaType = {
   }
 }
 
-const Media: CollectionConfig = {
+const alt: Field = {
+  name: 'alt',
+  label: 'Alt Text',
+  type: 'text',
+  required: true
+}
+
+export const Media: CollectionConfig = {
   slug: 'media',
   access: {
     read: (): boolean => true // Everyone can read Media
@@ -39,14 +46,5 @@ const Media: CollectionConfig = {
       }
     ]
   },
-  fields: [
-    {
-      name: 'alt',
-      label: 'Alt Text',
-      type: 'text',
-      required: true
-    }
-  ]
+  fields: [alt]
 }
-
-export default Media

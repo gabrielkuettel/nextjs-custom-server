@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import Link from 'next/link'
-import { Type as Page } from '../../collections/Page'
-import RichText from '../../components/RichText'
+import { Type as Page } from '@/collections/Pages'
+import RichText from '@/components/RichText'
 import classes from './index.module.css'
 
 export type Button =

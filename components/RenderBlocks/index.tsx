@@ -1,6 +1,6 @@
 import React from 'react'
-import { Layout } from '../../collections/Page'
-import { components } from '../../blocks'
+import { Layout } from '@/collections/Pages'
+import { components } from '@/blocks'
 import classes from './index.module.css'
 
 type Props = {
