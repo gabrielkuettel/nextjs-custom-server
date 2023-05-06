@@ -9,6 +9,7 @@ import { Users } from './collections/Users'
 import { Posts } from './collections/Posts'
 import { Categories } from './collections/Cateogies'
 import { Tags } from './collections/Tags'
+import { Menu } from './globals/Menu'
 
 dotenv.config()
 
@@ -26,5 +27,6 @@ export default buildConfig({
     Media,
     FormSubmissions,
     Studies
-  ]
+  ],
+  globals: [Menu]
 })

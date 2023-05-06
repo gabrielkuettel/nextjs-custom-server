@@ -11,6 +11,7 @@ type Props = {
 const RenderBlocks: React.FC<Props> = ({ layout, className }) => (
   <div className={[classes.renderBlocks, className].filter(Boolean).join(' ')}>
     {layout.map((block, i) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const Block: React.FC<any> = components[block.blockType]
 
       if (Block) {

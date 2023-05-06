@@ -3,7 +3,7 @@ import RichText from '../../components/RichText'
 import classes from './index.module.css'
 
 export type Type = {
-  blockType: 'content'
+  blockType: 'spacer'
   blockName?: string
   content: unknown
 }
