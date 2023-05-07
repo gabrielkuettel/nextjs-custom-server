@@ -1,4 +1,3 @@
-import React from 'react'
 import serialize from './serialize'
 
 const RichText: React.FC<{ className?: string; content: any }> = ({

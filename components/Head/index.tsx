@@ -1,4 +1,3 @@
-import React from 'react'
 import NextHead from 'next/head'
 import getConfig from 'next/config'
 import { useRouter } from 'next/router'

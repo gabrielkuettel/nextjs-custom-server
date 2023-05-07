@@ -1,4 +1,3 @@
-import React from 'react'
 import NextImage from 'next/image'
 import RichText from '../../components/RichText'
 import classes from './index.module.css'
@@ -9,6 +8,7 @@ export type Type = {
   blockType: 'image'
   blockName?: string
   image: MediaType
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   caption?: any
   type: 'normal' | 'wide' | 'fullscreen'
 }

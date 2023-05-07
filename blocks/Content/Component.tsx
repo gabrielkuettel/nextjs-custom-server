@@ -1,4 +1,3 @@
-import React from 'react'
 import RichText from '../../components/RichText'
 import classes from './index.module.css'
 
