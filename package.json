@@ -15,6 +15,7 @@
     "build:server": "tsc --project tsconfig.server.json",
     "build:payload": "payload build",
     "copyfiles:media": "copyfiles -u 1 media/**/*.{svg,jpg,png} dist/media",
+    "generate:types": "payload generate:types",
     "build": "cross-env NODE_ENV=production yarn build:payload && yarn build:server && yarn copyfiles:media && yarn build:next",
     "dev": "ts-node server.ts",
     "seed": "ts-node seed/index.js",
@@ -23,7 +24,7 @@
     "lint": "next lint -- --ignore-path .gitignore",
     "lint:fix": "npm run format && npm run lint -- --fix",
     "start": "next start",
-    "type-check": "tsc --noEmit"
+    "check-types": "tsc --noEmit"
   },
   "dependencies": {
     "copyfiles": "^2.4.1",

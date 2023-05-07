@@ -15,7 +15,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "payload/generated-types": [
+        "./types/payload.ts", // Ensure this matches the path to your typescript outputFile
+      ],
     },
     "baseUrl": "."
   },

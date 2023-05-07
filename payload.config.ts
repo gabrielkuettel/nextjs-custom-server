@@ -1,4 +1,5 @@
 import dotenv from 'dotenv'
+import path from 'path'
 import { buildConfig } from 'payload/config'
 
 import { Pages } from './collections/Pages'
@@ -28,5 +29,8 @@ export default buildConfig({
     FormSubmissions,
     Studies
   ],
-  globals: [Menu]
+  globals: [Menu],
+  typescript: {
+    outputFile: path.resolve(__dirname, './types/payload.ts')
+  }
 })
