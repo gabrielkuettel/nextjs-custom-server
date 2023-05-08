@@ -16,7 +16,7 @@ type Leaf = {
   [key: string]: unknown
 }
 
-const serialize = (children: Children): React.ReactElement[] =>
+export const serialize = (children: Children): React.ReactElement[] =>
   children.map((node, i) => {
     if (Text.isText(node)) {
       let text = (

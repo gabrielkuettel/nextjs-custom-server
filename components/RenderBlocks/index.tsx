@@ -1,6 +1,6 @@
-import { Layout } from '@/collections/Pages'
-import { components } from '@/blocks'
-import classes from './index.module.css'
+import { Layout } from '../../collections/Pages'
+import { components } from '../../blocks'
+import { Container } from '../Container'
 
 type Props = {
   layout: Layout[]
@@ -8,15 +8,17 @@ type Props = {
 }
 
 const RenderBlocks: React.FC<Props> = ({ layout, className }) => (
-  <div className={[classes.renderBlocks, className].filter(Boolean).join(' ')}>
+  <div className={className}>
     {layout.map((block, i) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const Block: React.FC<any> = components[block.blockType]
 
       if (Block) {
         return (
-          <section key={i} className={classes.block}>
-            <Block {...block} />
+          <section key={i}>
+            <Container>
+              <Block {...block} />
+            </Container>
           </section>
         )
       }

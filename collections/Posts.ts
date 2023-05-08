@@ -1,5 +1,5 @@
 import { CollectionConfig, Field } from 'payload/types'
-import { slug } from '../fields'
+import { slug, featuredImage } from '../fields'
 
 const title: Field = {
   name: 'title',
@@ -28,6 +28,11 @@ const tags: Field = {
   type: 'relationship',
   relationTo: 'tags',
   hasMany: true
+}
+
+const excerpt: Field = {
+  name: 'excerpt',
+  type: 'text'
 }
 
 const content: Field = {
@@ -63,5 +68,16 @@ export const Posts: CollectionConfig = {
   access: {
     read: () => true
   },
-  fields: [slug, title, author, publishedDate, category, tags, content, status]
+  fields: [
+    slug,
+    title,
+    featuredImage,
+    author,
+    publishedDate,
+    category,
+    tags,
+    excerpt,
+    content,
+    status
+  ]
 }

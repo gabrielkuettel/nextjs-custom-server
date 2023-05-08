@@ -1,14 +1,20 @@
 import { CollectionConfig, Field } from 'payload/types'
 import { MediaType } from './Media'
+import { slug, meta } from '../fields'
 import { Image } from '../blocks/Image/Config'
 import { Type as ImageType } from '../blocks/Image/Component'
 import { CallToAction } from '../blocks/CallToAction/Config'
 import { Type as CallToActionType } from '../blocks/CallToAction/Component'
 import { Content } from '../blocks/Content/Config'
 import { Type as ContentType } from '../blocks/Content/Component'
-import { slug, meta } from '../fields'
 
-export type Layout = CallToActionType | ContentType | ImageType
+import { BlogSectionBlock, BlogSectionProps } from '../blocks/BlogSection'
+
+export type Layout =
+  | CallToActionType
+  | ContentType
+  | ImageType
+  | BlogSectionProps
 
 export type Type = {
   title: string
@@ -34,7 +40,7 @@ const layout: Field = {
   label: 'Page Layout',
   type: 'blocks',
   minRows: 1,
-  blocks: [CallToAction, Content, Image]
+  blocks: [CallToAction, Content, Image, BlogSectionBlock]
 }
 
 export const Pages: CollectionConfig = {

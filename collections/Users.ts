@@ -1,4 +1,5 @@
 import { CollectionConfig, Field } from 'payload/types'
+import { avatar } from '../fields/avatar'
 
 const name: Field = {
   name: 'name',
@@ -16,6 +17,7 @@ export const Users: CollectionConfig = {
   },
   fields: [
     // Email added by default
-    name
+    name,
+    avatar
   ]
 }

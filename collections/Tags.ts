@@ -1,18 +1,19 @@
 import { CollectionConfig, Field } from 'payload/types'
+import { slug } from '../fields'
 
-const name: Field = {
-  name: 'name',
+const title: Field = {
+  name: 'title',
   type: 'text'
 }
 
 export const Tags: CollectionConfig = {
   slug: 'tags',
   admin: {
-    useAsTitle: 'name'
+    useAsTitle: 'title'
   },
   access: {
     read: () => true
   },
-  fields: [name],
+  fields: [slug, title],
   timestamps: false
 }

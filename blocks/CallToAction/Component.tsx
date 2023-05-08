@@ -1,7 +1,6 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import Link from 'next/link'
-import { Type as Page } from '@/collections/Pages'
-import RichText from '@/components/RichText'
+import { Page } from '../../types/payload'
+import RichText from '../../components/RichText'
 import classes from './index.module.css'
 
 export type Button =

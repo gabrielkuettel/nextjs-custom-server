@@ -64,6 +64,12 @@ export interface Page {
         blockName?: string;
         blockType: 'image';
       }
+    | {
+        show?: '3' | '6' | '9';
+        id?: string;
+        blockName?: string;
+        blockType: 'blogSection';
+      }
   )[];
   meta?: {
     title?: string;
@@ -111,10 +117,12 @@ export interface Post {
   id: string;
   slug?: string;
   title?: string;
+  image: string | Media;
   author?: string | User;
   publishedDate?: string;
   category?: string | Category;
   tags?: string[] | Tag[];
+  excerpt?: string;
   content?: {
     [k: string]: unknown;
   }[];
@@ -125,6 +133,7 @@ export interface Post {
 export interface User {
   id: string;
   name?: string;
+  avatar: string | Media;
   updatedAt: string;
   createdAt: string;
   email?: string;
@@ -136,7 +145,8 @@ export interface User {
 }
 export interface Tag {
   id: string;
-  name?: string;
+  slug?: string;
+  title?: string;
 }
 export interface FormSubmission {
   id: string;

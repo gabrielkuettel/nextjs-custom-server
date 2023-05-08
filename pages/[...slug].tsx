@@ -1,9 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 import payload from 'payload'
 import { GetServerSideProps } from 'next'
 import getConfig from 'next/config'
 import { Type as PageType } from '../collections/Pages'
 import NotFound from '../components/NotFound'
-import Head from '../components/Head'
 import RenderBlocks from '../components/RenderBlocks'
 
 const {
@@ -24,11 +24,6 @@ const Page: React.FC<Props> = (props) => {
 
   return (
     <main>
-      <Head
-        title={page.meta?.title || page.title}
-        description={page.meta?.description}
-        keywords={page.meta?.keywords}
-      />
       <header>
         <h1 className="text-7xl text-green-700">{page.title}</h1>
       </header>
