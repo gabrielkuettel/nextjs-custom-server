@@ -10,7 +10,7 @@ export type Type = {
   image: Media
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   caption?: any
-  type: 'normal' | 'wide' | 'fullscreen'
+  type: 'card' | 'feature'
 }
 
 export const Component: React.FC<Type> = (props) => {
@@ -21,10 +21,10 @@ export const Component: React.FC<Type> = (props) => {
     let { width } = image
     let { height } = image
 
-    if (image.sizes[type]) {
-      filenameToRender = image.sizes[type]
-      width = image.sizes[type].width
-      height = image.sizes[type].height
+    if (image.sizes?.[type]) {
+      filenameToRender = image.sizes[type]?.filename || ''
+      width = image.sizes[type]?.width
+      height = image.sizes[type]?.height
     }
 
     const sizesToUse = sizes

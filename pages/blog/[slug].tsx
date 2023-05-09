@@ -28,18 +28,18 @@ const Page: React.FC<Props> = ({ post, relatedPosts }) => {
         <Container className="z-10">
           <div className="absolute bottom-8 z-10 text-white lg:bottom-16">
             <Author
-              avatarSrc={post.author.avatar.url}
-              avatarAlt={post.author.name}
-              name={post.author.name}
-              href={`/authors/${post.author.id}`}
+              avatarSrc={post.author?.avatar.url || ''}
+              avatarAlt={post.author?.name || ''}
+              name={post.author?.name || ''}
+              href={`/authors/${post.author?.id}`}
               darkMode={true}
               className="mb-4 hidden sm:my-8 sm:block"
             />
             <Author
-              avatarSrc={post.author.avatar.url}
-              avatarAlt={post.author.name}
-              name={post.author.name}
-              href={`/authors/${post.author.id}`}
+              avatarSrc={post.author?.avatar.url || ''}
+              avatarAlt={post.author?.name || ''}
+              name={post.author?.name || ''}
+              href={`/authors/${post.author?.id}`}
               size="sm"
               darkMode={true}
               className="mb-4 sm:mt-8 sm:hidden"
@@ -52,7 +52,7 @@ const Page: React.FC<Props> = ({ post, relatedPosts }) => {
       </div>
       <Container className="mt-4 sm:mt-8">
         <RichText content={post.content} />
-        {post.tags.length && (
+        {post.tags?.length && (
           <div className="mt-8 sm:mt-16">
             <Tags
               tags={post.tags.map((tag) => ({
@@ -67,7 +67,7 @@ const Page: React.FC<Props> = ({ post, relatedPosts }) => {
           <div className="mt-16 sm:mt-32">
             <HeaderSection
               title="Keep Reading"
-              description={`More posts related to '${post.tags[0].name}'`}
+              description={`More posts related to '${post.tags?.[0].name}'`}
             />
             <BlogSection posts={mapPosts(relatedPosts)} />
           </div>

@@ -16,7 +16,7 @@ type Leaf = {
   [key: string]: unknown
 }
 
-export const serialize = (children: Children): React.ReactElement[] =>
+export const serialize = (children: Children) =>
   children.map((node, i) => {
     if (Text.isText(node)) {
       let text = (
@@ -54,7 +54,7 @@ export const serialize = (children: Children): React.ReactElement[] =>
       return <Fragment key={i}>{text}</Fragment>
     }
 
-    if (!node) {
+    if (!node || !node.children) {
       return null
     }
 
