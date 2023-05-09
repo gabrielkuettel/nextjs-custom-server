@@ -5,7 +5,7 @@ export const Menu: GlobalConfig = {
   slug: 'menu',
   fields: [
     {
-      name: 'nav',
+      name: 'menu',
       label: 'Navigation',
       type: 'array',
       fields: [link]

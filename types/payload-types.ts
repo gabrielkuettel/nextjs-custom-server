@@ -120,7 +120,6 @@ export interface Post {
   image: string | Media;
   author?: string | User;
   publishedDate?: string;
-  category?: string | Category;
   tags?: string[] | Tag[];
   excerpt?: string;
   content?: {
@@ -133,7 +132,7 @@ export interface Post {
 export interface User {
   id: string;
   slug?: string;
-  name?: string;
+  name: string;
   avatar: string | Media;
   updatedAt: string;
   createdAt: string;
@@ -175,7 +174,7 @@ export interface Study {
 }
 export interface Menu {
   id: string;
-  nav: {
+  menu: {
     link: {
       type?: 'page' | 'url';
       label: string;

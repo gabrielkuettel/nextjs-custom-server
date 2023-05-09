@@ -2,9 +2,10 @@
 import payload from 'payload'
 import { GetServerSideProps } from 'next'
 // import getConfig from 'next/config'
-import { Page as PageType, PaginatedDocs } from '../types/cms'
+import { Page as PageType, PaginatedDocs, Menu } from '../types/cms'
 import NotFound from '../components/NotFound'
 import RenderBlocks from '../components/RenderBlocks'
+import { Layout } from '@/components/Layout'
 
 // const {
 //   publicRuntimeConfig: { SERVER_URL }
@@ -12,21 +13,26 @@ import RenderBlocks from '../components/RenderBlocks'
 
 export type Props = {
   page?: PageType
+  menu: Menu['menu']
 }
 
-const Page: React.FC<Props> = (props) => {
-  const { page } = props
-
+const Page: React.FC<Props> = ({ page, menu }) => {
   if (!page) {
     return <NotFound />
   }
 
   return (
-    <main>
-      <header>
+    <Layout
+      navigation={menu.map((item) => ({
+        name: item.link.label || '',
+        href: '/' + item.link.page.slug || ''
+      }))}
+    >
+      <main>
+        {/* <header>
         <h1 className="text-7xl text-green-700">{page.title}</h1>
-      </header>
-      {/* <div>
+      </header> */}
+        {/* <div>
         {page.image && (
           <img
             src={`${SERVER_URL}/media/${
@@ -36,8 +42,8 @@ const Page: React.FC<Props> = (props) => {
           />
         )}
       </div> */}
-      <RenderBlocks layout={page.layout} />
-      <footer>
+        <RenderBlocks layout={page.layout} />
+        {/* <footer>
         <hr />
         NextJS + Payload Server Boilerplate made by{' '}
         <a
@@ -47,8 +53,9 @@ const Page: React.FC<Props> = (props) => {
         >
           Payload
         </a>
-      </footer>
-    </main>
+      </footer> */}
+      </main>
+    </Layout>
   )
 }
 
@@ -68,6 +75,11 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     }
   })
 
+  const menuQuery: Menu = await payload.findGlobal({
+    slug: 'menu',
+    depth: 1
+  })
+
   if (!pageQuery.docs[0]) {
     return {
       notFound: true
@@ -76,7 +88,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   return {
     props: {
-      page: pageQuery.docs[0]
+      page: pageQuery.docs[0],
+      menu: menuQuery.menu
     }
   }
 }
