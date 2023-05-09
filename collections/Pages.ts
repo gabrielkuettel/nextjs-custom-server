@@ -9,12 +9,14 @@ import { Content } from '../blocks/Content/Config'
 import { Type as ContentType } from '../blocks/Content/Component'
 
 import { BlogSectionBlock, BlogSectionProps } from '../blocks/BlogSection'
+import { HeaderSectionBlock, HeaderSectionProps } from '../blocks/HeaderSection'
 
 export type Layout =
   | CallToActionType
   | ContentType
   | ImageType
   | BlogSectionProps
+  | HeaderSectionProps
 
 export type Type = {
   title: string
@@ -40,7 +42,7 @@ const layout: Field = {
   label: 'Page Layout',
   type: 'blocks',
   minRows: 1,
-  blocks: [CallToAction, Content, Image, BlogSectionBlock]
+  blocks: [CallToAction, Content, Image, BlogSectionBlock, HeaderSectionBlock]
 }
 
 export const Pages: CollectionConfig = {
