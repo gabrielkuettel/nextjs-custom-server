@@ -51,5 +51,5 @@ export const Pages: CollectionConfig = {
   access: {
     read: (): boolean => true // Everyone can read Pages
   },
-  fields: [slug, title, layout, meta]
+  fields: [slug('title'), title, layout, meta]
 }

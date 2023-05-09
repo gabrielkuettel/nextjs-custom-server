@@ -1,4 +1,4 @@
-import { Post } from '../types/payload'
+import { Post } from '../types/cms'
 
 type PostsResponse = {
   docs: Post[]

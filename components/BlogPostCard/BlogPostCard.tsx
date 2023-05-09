@@ -15,7 +15,6 @@ type PostProps = {
     name: string
     slug: string
     imageUrl: string
-    href: string
   }
   publishedDate: string
   excerpt?: string
@@ -33,7 +32,7 @@ export const BlogPostCard: React.FC<PostProps> = ({
   return (
     <article className="flex flex-col items-start">
       <div className="relative w-full">
-        <Link href={`/posts/${slug}`}>
+        <Link href={`/blog/${slug}`}>
           <img
             src={imageUrl}
             alt=""
@@ -64,7 +63,7 @@ export const BlogPostCard: React.FC<PostProps> = ({
         </div>
         <div className="group relative">
           <h3 className="mt-3 line-clamp-1 text-lg font-semibold leading-6 text-neutral-900 group-hover:text-neutral-600">
-            <Link href={`/posts/${slug}`}>
+            <Link href={`/blog/${slug}`}>
               <span className="absolute inset-0 truncate" />
               {title}
             </Link>

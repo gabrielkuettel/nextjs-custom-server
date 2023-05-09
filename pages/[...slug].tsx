@@ -12,7 +12,6 @@ const {
 
 export type Props = {
   page?: PageType
-  statusCode: number
 }
 
 const Page: React.FC<Props> = (props) => {
@@ -70,10 +69,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   })
 
   if (!pageQuery.docs[0]) {
-    ctx.res.statusCode = 404
-
     return {
-      props: {}
+      notFound: true
     }
   }
 

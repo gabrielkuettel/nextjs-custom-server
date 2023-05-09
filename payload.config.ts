@@ -31,6 +31,6 @@ export default buildConfig({
   ],
   globals: [Menu],
   typescript: {
-    outputFile: path.resolve(__dirname, './types/payload.ts')
+    outputFile: path.resolve(__dirname, './types/payload-types.ts')
   }
 })

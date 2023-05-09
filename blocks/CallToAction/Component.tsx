@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Page } from '../../types/payload'
+import { Page } from '../../types/payload-types'
 import RichText from '../../components/RichText'
 import classes from './index.module.css'
 

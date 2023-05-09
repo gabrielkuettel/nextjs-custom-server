@@ -35,5 +35,13 @@ const category: Field = {
 
 export const Studies: CollectionConfig = {
   slug: 'studies',
-  fields: [title, client, category, featuredImage, location, meta, slug]
+  fields: [
+    title,
+    client,
+    category,
+    featuredImage,
+    location,
+    meta,
+    slug('title')
+  ]
 }

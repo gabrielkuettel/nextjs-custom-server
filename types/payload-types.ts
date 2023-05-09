@@ -146,7 +146,7 @@ export interface User {
 export interface Tag {
   id: string;
   slug?: string;
-  title?: string;
+  name?: string;
 }
 export interface FormSubmission {
   id: string;

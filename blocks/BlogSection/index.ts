@@ -1,2 +1,2 @@
-export * from './BlogSection.block'
+export * from './BlogSection.config'
 export * from './BlogSection.component'
