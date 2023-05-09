@@ -77,7 +77,7 @@ export const BlogPostCard: React.FC<PostProps> = ({
             avatarSrc={author?.imageUrl || ''}
             avatarAlt={author?.name || ''}
             name={author?.name || ''}
-            href={`/authors/${author?.name}`}
+            href={`/blog/authors/${author?.slug}`}
             size="sm"
             className="mt-4"
           />

@@ -132,6 +132,7 @@ export interface Post {
 }
 export interface User {
   id: string;
+  slug?: string;
   name?: string;
   avatar: string | Media;
   updatedAt: string;

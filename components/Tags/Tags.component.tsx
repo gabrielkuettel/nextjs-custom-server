@@ -15,7 +15,7 @@ export function Tags({ tags, className }: TagsProps) {
       {tags?.map((tag, idx) => (
         <Link
           key={tag.name + idx}
-          href={`/tags/${tag.slug}` || ''}
+          href={`/blog/tags/${tag.slug}` || ''}
           className="mr-2 mt-2 rounded-full bg-neutral-50 px-3 py-1.5 font-medium capitalize text-neutral-600 no-underline hover:bg-neutral-100"
         >
           {tag.name}

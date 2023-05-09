@@ -1,10 +1,13 @@
 import { CollectionConfig, Field } from 'payload/types'
 import { avatar } from '../fields/avatar'
+import { slug } from '../fields/slug'
 import { MediaType } from './Media'
 
 const name: Field = {
   name: 'name',
-  type: 'text'
+  type: 'text',
+  unique: true,
+  required: true
 }
 
 export type UserType = {
@@ -23,6 +26,7 @@ export const Users: CollectionConfig = {
   },
   fields: [
     // Email added by default
+    slug('name'),
     name,
     avatar
   ]

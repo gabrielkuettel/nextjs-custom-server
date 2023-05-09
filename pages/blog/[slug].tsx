@@ -31,7 +31,7 @@ const Page: React.FC<Props> = ({ post, relatedPosts }) => {
               avatarSrc={post.author?.avatar.url || ''}
               avatarAlt={post.author?.name || ''}
               name={post.author?.name || ''}
-              href={`/authors/${post.author?.id}`}
+              href={`/blog/authors/${post.author?.slug}`}
               darkMode={true}
               className="mb-4 hidden sm:my-8 sm:block"
             />
@@ -39,7 +39,7 @@ const Page: React.FC<Props> = ({ post, relatedPosts }) => {
               avatarSrc={post.author?.avatar.url || ''}
               avatarAlt={post.author?.name || ''}
               name={post.author?.name || ''}
-              href={`/authors/${post.author?.id}`}
+              href={`/blog/authors/${post.author?.slug}`}
               size="sm"
               darkMode={true}
               className="mb-4 sm:mt-8 sm:hidden"

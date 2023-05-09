@@ -20,7 +20,7 @@ export const mapPosts = (posts: Post[]) => {
 
     const author = {
       name: post.author?.name || '',
-      slug: post.author?.id || '',
+      slug: post.author?.slug || '',
       imageUrl: post.author?.avatar.url || ''
     }
 
