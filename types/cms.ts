@@ -1,4 +1,7 @@
+export type { PaginatedDocs } from 'payload/dist/mongoose/types'
+
 import {
+  Page as PayloadPage,
   Post as PayloadPost,
   User as PayloadUser,
   Category,
@@ -15,4 +18,10 @@ export interface Post extends PayloadPost {
   author?: User
   tags?: Tag[]
   image: Media
+}
+
+export type Layout = PayloadPage['layout']
+
+export interface Page extends PayloadPage {
+  layout: Layout
 }

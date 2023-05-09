@@ -2,7 +2,7 @@
 import payload from 'payload'
 import { GetServerSideProps } from 'next'
 
-import { Post } from '@/types/cms'
+import { Post, PaginatedDocs } from '@/types/cms'
 import { mapPosts } from '@/utilities/formatPost'
 import { Container } from '@/components/Container'
 import { Author } from '@/components/Author'
@@ -63,11 +63,11 @@ const Page: React.FC<Props> = ({ post, relatedPosts }) => {
             />
           </div>
         )}
-        {relatedPosts && (
+        {relatedPosts && post.tags?.[0].name && (
           <div className="mt-16 sm:mt-32">
             <HeaderSection
               title="Keep Reading"
-              description={`More posts related to '${post.tags?.[0].name}'`}
+              description={`More posts related to '${post.tags[0].name}'`}
             />
             <BlogSection posts={mapPosts(relatedPosts)} />
           </div>
@@ -82,7 +82,7 @@ export default Page
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const slug = ctx.params?.slug || ''
 
-  const postQuery = await payload.find({
+  const postQuery: PaginatedDocs<Post> = await payload.find({
     collection: 'posts',
     where: {
       slug: {
@@ -97,9 +97,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     }
   }
 
-  const primaryTag = postQuery.docs[0].tags[0]
+  const primaryTag = postQuery.docs[0]?.tags?.[0]?.slug || ''
 
-  const relatedPostsQuery = await payload.find({
+  const relatedPostsQuery: PaginatedDocs<Post> = await payload.find({
     collection: 'posts',
     depth: 2,
     limit: 3,
@@ -107,7 +107,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       and: [
         {
           'tags.slug': {
-            contains: primaryTag.slug
+            contains: primaryTag
           }
         },
         {

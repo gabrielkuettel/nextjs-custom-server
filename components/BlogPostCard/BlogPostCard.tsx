@@ -72,7 +72,7 @@ export const BlogPostCard: React.FC<PostProps> = ({
             {excerpt}
           </p>
         </div>
-        {
+        {author?.imageUrl && (
           <Author
             avatarSrc={author?.imageUrl || ''}
             avatarAlt={author?.name || ''}
@@ -81,7 +81,7 @@ export const BlogPostCard: React.FC<PostProps> = ({
             size="sm"
             className="mt-4"
           />
-        }
+        )}
       </div>
     </article>
   )

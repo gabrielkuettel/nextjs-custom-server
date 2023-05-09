@@ -1,14 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import payload from 'payload'
 import { GetServerSideProps } from 'next'
-import getConfig from 'next/config'
-import { Type as PageType } from '../collections/Pages'
+// import getConfig from 'next/config'
+import { Page as PageType, PaginatedDocs } from '../types/cms'
 import NotFound from '../components/NotFound'
 import RenderBlocks from '../components/RenderBlocks'
 
-const {
-  publicRuntimeConfig: { SERVER_URL }
-} = getConfig()
+// const {
+//   publicRuntimeConfig: { SERVER_URL }
+// } = getConfig()
 
 export type Props = {
   page?: PageType
@@ -26,7 +26,7 @@ const Page: React.FC<Props> = (props) => {
       <header>
         <h1 className="text-7xl text-green-700">{page.title}</h1>
       </header>
-      <div>
+      {/* <div>
         {page.image && (
           <img
             src={`${SERVER_URL}/media/${
@@ -35,7 +35,7 @@ const Page: React.FC<Props> = (props) => {
             alt={page.image.alt}
           />
         )}
-      </div>
+      </div> */}
       <RenderBlocks layout={page.layout} />
       <footer>
         <hr />
@@ -59,7 +59,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     ? (ctx.params.slug as string[]).join('/')
     : 'home'
 
-  const pageQuery = await payload.find({
+  const pageQuery: PaginatedDocs<PageType> = await payload.find({
     collection: 'pages',
     where: {
       slug: {
