@@ -2,12 +2,12 @@ import NextImage from 'next/image'
 import RichText from '../../components/RichText'
 import classes from './index.module.css'
 import sizes from './sizes.json'
-import { MediaType } from '../../collections/Media'
+import { Media } from '../../types/payload-types'
 
 export type Type = {
   blockType: 'image'
   blockName?: string
-  image: MediaType
+  image: Media
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   caption?: any
   type: 'normal' | 'wide' | 'fullscreen'
