@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link'
+import Image from 'next/image'
 import { Tags } from '../../components/Tags'
 import { Author } from '../../components/Author'
 
@@ -31,12 +31,14 @@ export const BlogPostCard: React.FC<PostProps> = ({
 }) => {
   return (
     <article className="flex flex-col items-start">
-      <div className="relative w-full">
+      <div className="relative aspect-[16/9] w-full rounded-2xl bg-neutral-100 shadow-lg sm:aspect-[2/1] lg:aspect-[3/2]">
         <Link href={`/blog/${slug}`}>
-          <img
+          <Image
             src={imageUrl}
             alt=""
-            className="aspect-[16/9] w-full rounded-2xl bg-neutral-100 object-cover shadow-lg sm:aspect-[2/1] lg:aspect-[3/2]"
+            fill
+            sizes="(max-width: 1024px) 100vw, 33vw"
+            className="rounded-2xl object-cover"
           />
           <div className="absolute inset-0 rounded-2xl" />
         </Link>

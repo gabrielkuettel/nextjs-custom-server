@@ -1,6 +1,6 @@
-/* eslint-disable @next/next/no-img-element */
 import clsx from 'clsx'
 import Link from 'next/link'
+import Image from 'next/image'
 
 type AuthorProps = {
   avatarSrc: string
@@ -30,12 +30,14 @@ export function Author({
     >
       <div className="flex items-center">
         <div>
-          <img
+          <Image
             className={clsx(
               darkMode ? 'ring-1 ring-neutral-100' : '',
               size === 'sm' ? ' h-9 w-9' : ' h-16 w-16',
-              'inline-block rounded-full'
+              'inline-block rounded-full object-cover'
             )}
+            width={64}
+            height={64}
             src={avatarSrc}
             alt={avatarAlt}
           />
